@@ -30,7 +30,7 @@ img {
 }
 
 .conteneur {
-  width: 960px;
+  width: 375px;
   margin-inline: auto;
   padding-inline: var(--espace);
 }
@@ -280,6 +280,11 @@ address {
   .bandeau__grille {
     grid-template-columns: 1.2fr 1fr;
   }
+ .conteneur {
+  width: 960px;
+  margin-inline: auto;
+  padding-inline: var(--espace);
+}
 }
 
 /* Préférences de l'utilisateur */
@@ -289,3 +294,5 @@ address {
     transition: none;
   }
 }
+
+

@@ -634,7 +634,7 @@ Mes différentes règles d'usage de l'IA sont:
 -Evitez de données trop d'informations
 -Vérifiez toutes les informations nottament à l'aide de site technique ou possiblement aussi avec d'autres IA
 
-Erreur trouvé avec W3C en HTML:
+Hyphothèse:
 
 A1-Pour corrgier cette erreur il faudrait faire des @media{ }avec surement des display flex et choisir flex direction.
 
@@ -647,3 +647,33 @@ A4-Mettre la même class="" sur les 2 boutons afin qu'ils aient le même effet.
 A5-Utiliser une balise pour le contraste, pour celle-ci j'en ai aucune idée.
 
 A6-Rajouter en CSS .text-decoration: underline; à appliquer à tous sauf sur le nom de la maquette.
+
+
+
+Prompt 1:
+
+    • En dessous de 375 px la page défile horizontalement. Le menu et le fond vert du bandeau sont coupés. aucun défilement horizontal, tout le contenu tient dans la largeur de l’écran. A l'aide de ce CSS .conteneur { width: 960px; margin-inline: auto; padding-inline: var(--espace); } Dis moi si le problème vient de cette partie sans me donner la réponse.
+                1. ChatGPT a dit :
+Oui, cette partie du CSS est une bonne piste à examiner. 👀
+Regarde attentivement la propriété width et demande-toi ce qu’elle implique lorsque la largeur de l’écran est inférieure à 375 px.
+Je te laisse chercher le lien avec le défilement horizontal, sans te donner la solution.
+
+
+mon changement:
+.conteneur {
+  width: 375px;
+  margin-inline: auto;
+  padding-inline: var(--espace);
+}
+Modification de la width de 960 px à 375px
+@media (min-width: 48em) {
+  .bandeau__grille {
+    grid-template-columns: 1.2fr 1fr;
+  }
+ .conteneur {
+  width: 960px;
+  margin-inline: auto;
+  padding-inline: var(--espace);
+}
+}et en media j'ai rajouté la width à 960 px.
+
