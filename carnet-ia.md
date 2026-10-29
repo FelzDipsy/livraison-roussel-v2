@@ -677,3 +677,43 @@ Modification de la width de 960 px à 375px
 }
 }et en media j'ai rajouté la width à 960 px.
 
+J'ai affiché la page à 375 px, puis à 1280 px.
+La camionnette paraît écrasée ou étirée selon la largeur de l’écran.
+L'objectif est que l’image garde ses proportions, quelle que soit la largeur.
+.bandeau__photo {
+  width: 100%;
+  height: 220px;
+  border-radius: var(--rayon);
+}
+
+
+Prompt2:
+
+Sans me donner la réponse en code est ce que le problème peut venir de cette partie de CSS
+ChatGPT a dit :
+
+Oui, tout à fait ! Le problème peut venir de cette partie du CSS.
+
+    La largeur à 100 % : elle fait en sorte que l’image s’adapte à la largeur de son conteneur.
+
+    La hauteur fixe à 220 px : c’est probablement la source du problème. Lorsque la largeur de l’écran change, la hauteur reste identique. L’image risque donc d’être étirée ou écrasée si ses proportions ne sont pas respectées.
+
+    Le rayon de bordure : il arrondit les coins de l’image, mais ne modifie pas ses proportions.
+
+💡 L'indice principal est donc la hauteur fixe.
+
+Pour résoudre ce problème, réfléchis à la manière de laisser le navigateur conserver automatiquement les proportions originales de l’image, tout en lui permettant de s’adapter à la largeur disponible.
+
+Tu peux également te demander si tu souhaites afficher l’image entière ou si tu acceptes qu’une partie soit coupée pour remplir un espace de hauteur fixe. Ce sont deux comportements différents.
+
+J'ai donc modifié .bandeau__photo {
+  width: 100%;
+  height: 220px;
+  border-radius: var(--rayon);
+}
+en
+.bandeau__photo {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--rayon);
+}
