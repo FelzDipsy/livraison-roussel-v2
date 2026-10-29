@@ -767,3 +767,4 @@ a:focus  {
 }
 
 
+Je n'ai pas fait de prompt pour la A4 car en corrigant le HTML en faisant for=code-postal le problème s'est réglé seul. 
