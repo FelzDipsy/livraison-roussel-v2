@@ -717,3 +717,53 @@ en
   height: 100%;
   border-radius: var(--rayon);
 }
+
+
+
+Prompt3:
+J' ai cliqué dans la barre d’adresse, puis appuyer plusieurs fois sur Tab.
+J'ai constaté qu'il est impossible de savoir quel lien, quel champ ou quel bouton est actif.
+Le but est de faire en sorte qu'un repère bien visible entoure chaque élément atteint au clavier.
+input,
+button {
+  font: inherit;
+  padding: 0.6rem 0.8rem;
+  border-radius: 0.4rem;
+}
+
+input {
+  border: 1px solid var(--gris-texte);
+}
+
+button {
+  border: none;
+  background: var(--vert);
+  color: #ffffff;
+  cursor: pointer;
+}
+Sans me donner la réponse est ce que ça peut provenir de ce CSS
+ChatGPT a dit :
+
+Oui, tout à fait ! 🙂
+
+Ton CSS peut être à l’origine du problème, notamment parce qu’il définit l’apparence des input et des button.
+
+Quelques pistes pour réfléchir sans te donner la réponse :
+
+    Quel élément CSS permet de modifier l’apparence d’un élément lorsqu’il reçoit le focus au clavier ?
+
+    Est-ce que ton CSS définit une apparence particulière pour cet état ?
+
+    La propriété border est-elle la seule propriété qui peut servir à rendre le focus visible ?
+
+💡 Indice : quand tu appuies sur Tab, le navigateur applique un état particulier à l’élément sélectionné. Cherche le sélecteur CSS qui correspond à cet état.
+
+J'ai donc rajouté ça afin de montrer que lorsqu'on est dessus une bordure rose s'applique.
+
+input:focus,
+button:focus,
+a:focus  {
+  outline: 1px solid var(--rose);
+}
+
+

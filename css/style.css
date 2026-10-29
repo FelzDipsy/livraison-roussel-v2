@@ -256,6 +256,11 @@ button {
   color: #ffffff;
   cursor: pointer;
 }
+input:focus,
+button:focus,
+a:focus  {
+  outline: 1px solid var(--rose);
+}
 
 /* Pied de page */
 
