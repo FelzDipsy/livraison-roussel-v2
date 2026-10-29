@@ -899,9 +899,7 @@ css
   aspect-ratio: 3 / 2;
   object-fit: cover;
   border-radius: var(--rayon);
-}
-
-  
+} 
 
   
 
@@ -949,3 +947,165 @@ css
   outline: 2px solid var(--rose);
   outline-offset: 2px;
 }
+
+
+Prompt:
+Puis-je choisir l’heure de livraison ?
+Nous livrons par créneau : le matin, de 9 h à 12 h, ou l’après-midi, de 14 h à 18 h. Indiquez votre
+créneau lors de la commande.
+Que se passe-t-il si le destinataire est absent ?
+Nous l’appelons. Sans réponse, le bouquet est rapporté en boutique et livré de nouveau le lendemain,
+sans frais en zone 1.
+Livrez-vous le dimanche ?
+
+Non. La boutique est fermée le dimanche et le lundi : les commandes passées ces jours-là sont livrées
+le mardi.
+Puis-je joindre un message ?
+Oui. Une carte écrite à la main est offerte avec chaque bouquet. Indiquez votre message lors de la
+commande, 200 caractères au maximum.
+Livrez-vous les entreprises ?
+Oui, aux mêmes tarifs. Pour un abonnement floral chaque semaine, contactez la boutique.
+
+Remplace les questions et réponses que tu m'as donné dans la faq par ces questions et réponse que je viens de te donner.
+
+Voici le code HTML complet de la section avec vos textes recopiés tels quels, sans aucune reformulation, prêt à être intégré dans votre page :
+
+html
+<section class="conteneur section" aria-labelledby="titre-faq">
+  <h2 id="titre-faq">Questions fréquentes</h2>
+  <div class="faq">
+    <details class="faq__item">
+      <summary class="faq__question">Puis-je choisir l’heure de livraison ?</summary>
+      <div class="faq__reponse">
+        <p>Nous livrons par créneau : le matin, de 9 h à 12 h, ou l’après-midi, de 14 h à 18 h. Indiquez votre créneau lors de la commande.</p>
+      </div>
+    </details>
+    <details class="faq__item">
+      <summary class="faq__question">Que se passe-t-il si le destinataire est absent ?</summary>
+      <div class="faq__reponse">
+        <p>Nous l’appelons. Sans réponse, le bouquet est rapporté en boutique et livré de nouveau le lendemain, sans frais en zone 1.</p>
+      </div>
+    </details>
+    <details class="faq__item">
+      <summary class="faq__question">Livrez-vous le dimanche ?</summary>
+      <div class="faq__reponse">
+        <p>Non. La boutique est fermée le dimanche et le lundi : les commandes passées ces jours-là sont livrées le mardi.</p>
+      </div>
+    </details>
+    <details class="faq__item">
+      <summary class="faq__question">Puis-je joindre un message ?</summary>
+      <div class="faq__reponse">
+        <p>Oui. Une carte écrite à la main est offerte avec chaque bouquet. Indiquez votre message lors de la commande, 200 caractères au maximum.</p>
+      </div>
+    </details>
+    <details class="faq__item">
+      <summary class="faq__question">Livrez-vous les entreprises ?</summary>
+      <div class="faq__reponse">
+        <p>Oui, aux mêmes tarifs. Pour un abonnement floral chaque semaine, contactez la boutique.</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+Le CSS fourni précédemment s'applique directement à ces éléments.
+
+Fais moi le css pour l'adapter à la charte de la page
+
+Voici le CSS spécialement conçu pour s’intégrer harmonieusement à la charte graphique et aux composants existants de Fleurs Roussel (cartes, bordures douces, typographie et couleurs :root).
+
+Vous pouvez copier ce bloc et l’ajouter à la fin de votre fichier css/style.css :
+
+css
+/* ==========================================================================
+   Section : Questions fréquentes (FAQ)
+   ========================================================================== */
+.faq {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.faq__item {
+  border: 1px solid var(--vert-clair);
+  border-radius: var(--rayon);
+  background: var(--fond);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+/* Changement subtil de bordure quand l'élément est ouvert */
+.faq__item[open] {
+  border-color: var(--vert);
+}
+.faq__question {
+  padding: 1rem var(--espace);
+  font-weight: 600;
+  color: var(--texte);
+  cursor: pointer;
+  border-radius: var(--rayon);
+  transition: color 0.2s ease;
+}
+/* Survol de la question : rappel de la couleur rose comme pour les liens */
+.faq__question:hover {
+  color: var(--rose);
+}
+/* Repère de focus visible au clavier (Touche Tab) conforme aux normes d'accessibilité */
+.faq__question:focus-visible {
+  outline: 2px solid var(--rose);
+  outline-offset: 2px;
+}
+/* Séparation propre entre la question et la réponse lorsque le volet est ouvert */
+.faq__item[open] .faq__question {
+  border-bottom: 1px solid var(--vert-clair);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  color: var(--vert);
+}
+.faq__reponse {
+  padding: 1rem var(--espace);
+  color: var(--texte);
+  line-height: 1.6;
+}
+.faq__reponse p {
+  margin: 0;
+}
+Pourquoi ce CSS respecte parfaitement la charte :
+
+  
+Couleurs de la marque :
+  
+  
+
+  
+La bordure fermée reprend --vert-clair (identique aux bordures des cartes et du tableau).
+
+  
+Le survol passe en --rose (la couleur d'accentuation utilisée pour le survol du menu et le focus).
+
+  
+L'intitulé ouvert passe en --vert pour indiquer clairement la sélection active.
+
+  
+
+  
+Rayons et espacements cohérents :
+  
+  
+
+  
+Réutilise var(--rayon) (0.75rem) pour des angles identiques à vos cartes et à la photo de la camionnette.
+
+  
+Utilise var(--espace) (1.5rem) pour des marges intérieures parfaitement alignées avec la grille de votre page.
+
+  
+
+  
+Accessibilité clavier irréprochable :
+  
+  
+
+  
+L'état :focus-visible affiche un contour rose franc (2px solid var(--rose)) bien visible dès qu'un utilisateur navigue avec la touche Tab, sans perturber le clic à la souris.
+
+
+La balise <details> permet de créer un composant dans laquel l'information est visble uniquement quand le composant est ouvert.
+La balise <summary> montre une boîte qui permet de révéler le contenu d'un élément <details>.

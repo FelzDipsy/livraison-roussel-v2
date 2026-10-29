@@ -284,6 +284,66 @@ address {
   font-style: normal;
 }
 
+/* ==========================================================================
+   Section : Questions fréquentes (FAQ)
+   ========================================================================== */
+
+.faq {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.faq__item {
+  border: 1px solid var(--vert-clair);
+  border-radius: var(--rayon);
+  background: var(--fond);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Changement subtil de bordure quand l'élément est ouvert */
+.faq__item[open] {
+  border-color: var(--vert);
+}
+
+.faq__question {
+  padding: 1rem var(--espace);
+  font-weight: 600;
+  color: var(--texte);
+  cursor: pointer;
+  border-radius: var(--rayon);
+  transition: color 0.2s ease;
+}
+
+/* Survol de la question : rappel de la couleur rose comme pour les liens */
+.faq__question:hover {
+  color: var(--rose);
+}
+
+/* Repère de focus visible au clavier (Touche Tab) conforme aux normes d'accessibilité */
+.faq__question:focus-visible {
+  outline: 2px solid var(--rose);
+  outline-offset: 2px;
+}
+
+/* Séparation propre entre la question et la réponse lorsque le volet est ouvert */
+.faq__item[open] .faq__question {
+  border-bottom: 1px solid var(--vert-clair);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  color: var(--vert);
+}
+
+.faq__reponse {
+  padding: 1rem var(--espace);
+  color: var(--texte);
+  line-height: 1.6;
+}
+
+.faq__reponse p {
+  margin: 0;
+}
 /* Écrans larges */
 
 @media (min-width: 48em) {
