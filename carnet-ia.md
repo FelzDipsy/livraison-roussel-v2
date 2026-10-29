@@ -770,5 +770,7 @@ a:focus  {
 Je n'ai pas fait de prompt pour la A4 car en corrigant le HTML en faisant for=code-postal le problème s'est réglé seul. 
 
 
-Pour la A je n'ai pas fait de prompt mais utiliser https://webaim.org/resources/contrastchecker/ afin de modifier le contrast de la couleur.
+Pour la A5 je n'ai pas fait de prompt mais utiliser https://webaim.org/resources/contrastchecker/ afin de modifier le contrast de la couleur.
  --gris-texte: #454A46;
+
+ Pour la A6 il suffisait d'enlever le <em> de l'adress.
