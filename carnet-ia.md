@@ -636,3 +636,14 @@ Mes différentes règles d'usage de l'IA sont:
 
 Erreur trouvé avec W3C en HTML:
 
+A1-Pour corrgier cette erreur il faudrait faire des @media{ }avec surement des display flex et choisir flex direction.
+
+A2- Utiliser l'aspect ratio pour modifier le rapport largeur/hauteur donc peut être garder les proportions pour l'image
+
+A3-Utiliser :hover sur les éléments où le tab emmene afin de voir l'élément cahnger de couleur
+
+A4-Mettre la même class="" sur les 2 boutons afin qu'ils aient le même effet.
+
+A5-Utiliser une balise pour le contraste, pour celle-ci j'en ai aucune idée.
+
+A6-Rajouter en CSS .text-decoration: underline; à appliquer à tous sauf sur le nom de la maquette.
