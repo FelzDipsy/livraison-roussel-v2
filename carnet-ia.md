@@ -774,3 +774,178 @@ Pour la A5 je n'ai pas fait de prompt mais utiliser https://webaim.org/resources
  --gris-texte: #454A46;
 
  Pour la A6 il suffisait d'enlever le <em> de l'adress.
+
+
+
+ Fais moi une relecture corrigé du CSS sans rien modifié mais en me proposant des suggestions
+
+Voici une relecture complète et détaillée de vos fichiers livraison.html et style.css.
+
+Conformément à votre consigne, aucun fichier n’a été modifié. Vous trouverez ci-dessous le bilan de ce qui fonctionne très bien, les anomalies restantes ou points de fragilité, ainsi que des suggestions d'amélioration concrètes.
+
+Résumé général
+
+Votre code est propre, bien structuré et vos corrections récentes (anomalies A1 à A6) vont dans le bon sens :
+
+
+  
+L'accessibilité sémantique de base est respectée (<caption>, scope, <time>, <address>, listes ordonnées, alt d'image, label for).
+
+  
+Le contraste de --gris-texte (#454A46) offre un ratio d'environ 9.5:1 sur blanc (conforme WCAG AAA).
+
+  
+L'erreur de balise non fermée dans le footer a été résolue.
+
+  
+
+Cependant, il reste 3 points importants (principalement en CSS) à ajuster pour un rendu et une accessibilité irréprochables.
+
+1. Relecture du CSS (css/style.css)
+Suggestion 1 (Majeure) : La largeur du conteneur (.conteneur)
+
+Actuellement :
+
+css
+.conteneur {
+  width: 375px; /* ⚠️ Largeur fixe */
+  margin-inline: auto;
+  padding-inline: var(--espace);
+}
+@media (min-width: 48em) {
+  .conteneur {
+    width: 960px; /* ⚠️ Largeur fixe */
+    margin-inline: auto;
+    padding-inline: var(--espace);
+  }
+}
+
+  
+Problème rencontré :
+  
+  
+
+  
+Sur un petit écran inférieur à 375 px (ex. 320 px ou 360 px, très fréquents sur Android), un défilement horizontal apparaît car la largeur est verrouillée à 375 px.
+
+  
+Entre 376 px et 767 px (tablettes ou smartphones plus larges), le contenu reste bloqué à 375 px au milieu au lieu d'occuper naturellement l'espace.
+
+  
+Les propriétés margin-inline et padding-inline sont dupliquées inutilement dans la media query.
+
+  
+
+  
+Suggestion recommandée : Utiliser une largeur fluide avec une largeur maximale (max-width) :
+
+  
+css
+/* Une seule déclaration suffit pour tous les écrans */
+.conteneur {
+  width: 100%;
+  max-width: 60rem; /* équivalent à 960px */
+  margin-inline: auto;
+  padding-inline: var(--espace);
+}
+/* La règle .conteneur dans @media (min-width: 48em) peut alors être totalement supprimée ! */
+Suggestion 2 (Majeure) : Proportions de l'image (.bandeau__photo)
+
+Actuellement :
+
+css
+.bandeau__photo {
+  width: 100%;
+  height: 100%; /* ⚠️ Écrase la règle globale height: auto */
+  border-radius: var(--rayon);
+}
+
+  
+Problème rencontré :
+  
+  
+
+  
+La règle globale ligne 29 définit img { max-width: 100%; height: auto; } qui garantit le respect du ratio hauteur/largeur.
+
+  
+En forçant height: 100%, l'image s'étire pour remplir toute la hauteur de la grille CSS du bandeau (notamment sur grand écran), ce qui déforme la camionnette si la colonne de texte est plus haute que l'image.
+
+  
+
+  
+Suggestion recommandée :
+  
+  
+
+  
+Option simple : laisser la hauteur automatique :
+  
+css
+.bandeau__photo {
+  width: 100%;
+  height: auto;
+  border-radius: var(--rayon);
+}
+
+  
+
+  
+Option cadrée moderne (conserve le ratio 3:2 exact sans jamais déformer) :
+  
+css
+.bandeau__photo {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: var(--rayon);
+}
+
+  
+
+  
+
+  
+Suggestion 3 (Majeure - Accessibilité) : Gestion du focus (:focus vs :focus-visible)
+
+Actuellement :
+
+css
+/* Ligne 52 */
+*:focus {
+  outline: none; /* ⚠️ Supprime le focus natif pour tous les éléments */
+}
+/* Ligne 259 */
+input:focus,
+button:focus,
+a:focus {
+  outline: 1px solid var(--rose); /* ⚠️ 1px est très fin et peu visible */
+}
+
+  
+Problème rencontré :
+  
+  
+
+  
+*:focus { outline: none; } est un anti-pattern d'accessibilité (critère WCAG 2.4.7). Si un élément interactif n'est pas ciblé par votre liste (ex: zone de défilement, futur accordéon, lien d'évitement), il devient invisible au clavier.
+
+  
+1px solid est trop fin pour être bien repéré au clavier (les normes recommandent au moins 2 px).
+
+  
+L'outline s'affiche aussi lors d'un clic souris sur les boutons ou liens, ce qui n'est pas toujours esthétique.
+
+  
+
+  
+Suggestion recommandée :
+Supprimer *:focus { outline: none; } et utiliser le pseudo-sélecteur moderne :focus-visible avec un outline-offset pour aérer l'indicateur :
+
+  
+css
+/* Supprimer *:focus { outline: none; } */
+:focus-visible {
+  outline: 2px solid var(--rose);
+  outline-offset: 2px;
+}
