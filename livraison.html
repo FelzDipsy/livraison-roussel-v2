@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Livraison · Fleurs Roussel</title>
+  <meta name="description" content="Zones, tarifs et délais de livraison des bouquets Fleurs Roussel.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="evitement" href="#contenu">Aller au contenu</a>
+
+  <header class="entete">
+    <div class="conteneur entete__ligne">
+      <a class="logo" href="index.html">Fleurs Roussel</a>
+      <nav aria-label="Navigation principale">
+        <ul class="menu">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="bouquets.html">Bouquets</a></li>
+          <li><a href="livraison.html" aria-current="page">Livraison</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <section class="bandeau">
+      <div class="conteneur bandeau__grille">
+        <div>
+          <h1>Livraison de fleurs à Tours et alentours</h1>
+          <p class="chapo">Commandez avant 14 h, votre bouquet arrive le jour même.</p>
+        </div>
+        <img class="bandeau__photo" src="img/camionnette.jpg" width="1200" height="800">
+      </div>
+    </section>
+
+    <section class="conteneur section" aria-labelledby="titre-zones">
+      <h2 id="titre-zones">Zones et tarifs</h2>
+      <div class="tableau-defilant">
+        <table class="tarifs">
+          <caption>Tarifs de livraison selon la zone</caption>
+          <thead>
+            <tr>
+              <th scope="col">Zone</th>
+              <th scope="col">Communes</th>
+              <th scope="col">Délai</th>
+              <th scope="col">Tarif</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Zone 1</th>
+              <td>Tours</td>
+              <td>Jour même</td>
+              <td>6,90 €</td>
+            </tr>
+            <tr>
+              <th scope="row">Zone 2</th>
+              <td>Joué-lès-Tours, Saint-Cyr-sur-Loire, Saint-Pierre-des-Corps</td>
+              <td>Jour même</td>
+              <td>9,90 €</td>
+            </tr>
+            <tr>
+              <th scope="row">Zone 3</th>
+              <td>Autres communes à moins de 25 km</td>
+              <td>Lendemain</td>
+              <td>14,90 €</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">Livraison offerte dès 60 € d'achat en zone 1.</p>
+    </section>
+
+    <section class="conteneur section" aria-labelledby="titre-etapes">
+      <h2 id="titre-etapes">Comment ça marche</h2>
+      <ol class="etapes">
+        <li class="carte">
+          <h3>Vous choisissez</h3>
+          <p>Un bouquet de la boutique en ligne, ou une composition sur mesure par téléphone.</p>
+        </li>
+        <li class="carte">
+          <h3>Nous composons</h3>
+          <p>Le bouquet est préparé le matin même avec des fleurs de saison.</p>
+        </li>
+        <li class="carte">
+          <h3>Nous livrons</h3>
+          <p>En main propre, avec votre carte. En cas d'absence, nous vous appelons.</p>
+        </li>
+        <li class="carte">
+          <h3>Vous êtes prévenu</h3>
+          <p>Un SMS confirme la livraison avec l'heure de remise du bouquet.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="conteneur section" aria-labelledby="titre-verifier">
+      <h2 id="titre-verifier">Livrez-vous chez moi ?</h2>
+      <form class="formulaire" action="#" method="get">
+        <div class="champ">
+          <label for="cp">Code postal</label>
+          <input id="code-postal" name="cp" type="text" inputmode="numeric"
+                 pattern="[0-9]{5}" maxlength="5" autocomplete="postal-code" required>
+        </div>
+        <div class="champ">
+          <label for="date">Date souhaitée</label>
+          <input id="date" name="date" type="date" required>
+        </div>
+        <button type="submit">Vérifier</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="pied">
+    <div class="conteneur">
+      <address>
+        <em>Fleurs Roussel</em>, <em>12 rue Colbert, 37000 Tours ·
+        <a href="tel:+33261910000">02 61 91 00 00</a>
+      </address>
+      <p>Boutique ouverte du mardi au samedi, de <time datetime="09:00">9 h</time> à <time datetime="19:00">19 h</time>.</p>
+    </div>
+  </footer>
+</body>
+</html>
